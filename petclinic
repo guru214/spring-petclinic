@@ -4,7 +4,7 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
     }
     triggers {
-        pollSCM('H */3 * * 1-5')  // Poll SCM every 3 hours from Monday to Friday
+        pollSCM('H */3 * * 1-5')
     }
     stages {
         stage('Git Cloning') {
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build and Package') {
             steps {
-                sh 'mvn package'
+                sh script: 'mvn package'
             }
         }
     }
