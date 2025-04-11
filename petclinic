@@ -8,7 +8,9 @@
             }
         }
         stage('install packages') {
-            sh script: 'mvn install'
+            steps {
+                sh script: 'mvn install'
+            }
         }
         stage('Build and Package') {
             steps {
@@ -18,4 +20,3 @@
         }
     }     
     }
-
